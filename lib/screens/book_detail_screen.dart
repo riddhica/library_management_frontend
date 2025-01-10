@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:library_management_frontend/models/book.dart';
+import 'package:library_management_frontend/models/user.dart';
 import 'package:library_management_frontend/services/api_service.dart';
 import 'package:library_management_frontend/screens/add_book_screen.dart'; 
 
 class BookDetailScreen extends StatelessWidget {
+  final User user;
   final Book book;
 
-  BookDetailScreen({required this.book});
+  BookDetailScreen({ required this.user,required this.book});
 
   final ApiService apiService = ApiService();
 
@@ -37,7 +39,7 @@ class BookDetailScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AddBookScreen(book: book),
+                    builder: (context) => AddBookScreen(user: this.user, book: book),
                   ),
                 );
               },

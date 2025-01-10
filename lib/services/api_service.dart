@@ -69,7 +69,6 @@ class ApiService {
     if (response.statusCode == 204) {
       return true; // Successfully deleted
     } else {
-      // Handle error response, provide feedback if status code is different
       return false; // Failed to delete
     }
   }

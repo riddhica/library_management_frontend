@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:library_management_frontend/models/book.dart';
+import 'package:library_management_frontend/models/user.dart';
 import 'package:library_management_frontend/services/api_service.dart';
 
 class AddBookScreen extends StatefulWidget {
+  final User user;
   final Book? book;
 
-  AddBookScreen({this.book});
+  AddBookScreen({
+    required this.user,
+    this.book
+  });
 
   @override
   _AddBookScreenState createState() => _AddBookScreenState();
@@ -58,22 +63,6 @@ class _AddBookScreenState extends State<AddBookScreen> {
         _showErrorMessage('Failed to save the book');
       }
 
-    //   final bookDetails = Book(
-    //     id: widget.book?.id ?? '', // Use existing book ID if editing
-    //     title: title,
-    //     author: author,
-    //     publicationDate: publicationDate,
-    //     quantity: quantity,
-    //   );
-
-    //   // Call the appropriate API method (add or update)
-    //   final response = widget.book == null
-    //       ? await ApiService().addBook(bookDetails)
-    //       : await ApiService().updateBook(widget.book!.id,bookDetails);
-
-    //   if (response != null) {
-    //     Navigator.pop(context, true); // Go back with success
-    //   }
     }
   }
 
@@ -154,7 +143,7 @@ class _AddBookScreenState extends State<AddBookScreen> {
       ),
     );
   }
-   void _showSuccessMessage(String message) {
+  void _showSuccessMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(message),
         backgroundColor: Colors.green,

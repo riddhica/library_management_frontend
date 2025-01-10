@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:library_management_frontend/screens/book_list_screen.dart';
+import 'screens/login_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(LibraryApp());
 }
 
-class MyApp extends StatelessWidget {
+class LibraryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Library App',
+      title: 'Library Management System',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BookListScreen(),
+      home: LoginScreen(),
     );
   }
 }
